@@ -1,0 +1,75 @@
+{% extends 'theme.html' %}
+{% block title %}Login Page{% endblock %}
+<script>
+  function clearPassword() {
+    // Get the password input element by its ID
+    var passwordInput = document.getElementById("password");
+
+    // Clear the value of the password field
+    passwordInput.value = "";
+
+    // Optionally, you can also clear the value of the username field if needed
+    var usernameInput = document.getElementById("username");
+    usernameInput.value = "";
+  }
+  
+  
+</script>
+<body class="d-flex align-content-center bg-secondary-subtle" style="height: 100%;">
+  {% block content %}
+<div class="container-fluid m-auto">
+<section class="h-100 gradient-form">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-10">
+        <div class="card rounded-3 text-black">
+          <div class="row g-0">
+            <div class="col-lg">
+              <div class=" card-body p-md-5 mx-md-4 ">
+
+                <div class=" text-center">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                    style="width: 185px;" alt="logo">
+                  <p class="text-center h1 fw-bold  mx-1 mx-md-4 ">Lotus Mart</p>
+                  <p class="mb-4"> <small> <small>YOUR DAILY NEEDS</small> </small></p>
+                </div>
+                <div style="padding-left: 30%;">
+                <form action="." method="post">
+                  {% csrf_token %}
+                  <p>Please login to your account</p>
+
+                  <div class="form-outline" style="width:20vw;">
+                    <input type="text" id="username" name="usr" class="form-control"
+                      placeholder="User Name" required />
+                    <label class="form-label" for="form2Example11"></label>
+                  </div>
+
+                  <div class="form-outline mb-3" style="width:20vw;">
+                    <input type="password" name="pas" id="password" class="form-control" placeholder="Password" required/>
+                    <label class="form-label" for="form2Example22"></label>
+                  </div>
+                </div>
+
+                  <div class="text-center pt-1 mb-5 pb-1">
+                    <button class="btn btn-primary btn-block fa-lg gradient-custom-2 " type="submit">Log
+                      in</button>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-center pb-2">
+                    <p class="mb-0 me-2">Don't have an account?</p>
+                    <a href="{% url 'signup' %}" class="text-dark text-center btn btn-success text-white "><h6><b>Create New</b></h6></a>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<br>
+  {% endblock %}
+</body>

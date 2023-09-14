@@ -1,0 +1,40 @@
+{% extends 'theme.html' %}
+{% block title %}Product Page{% endblock %}
+{% block content %}
+<div>
+    <a href=" {% url 'lout' %} "style="float: right;" class="btn btn-danger text-center mt-4 me-5"><b>Log Out</b></a>
+</div>
+<div style="height: 10vh;">
+    <br>
+<h2 style="text-align: center;" > <b> PRODUCTS </b> </h2>
+</div>
+<div class="container">
+    <div class="row">
+{% for i in products %}
+    <div class="col-md-3">
+    
+    <div class="card">
+        <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
+        <div class="card-body">
+        <h5 class="card-title"> {{i.name}} </h5>
+        <p class="card-text"> ₹{{i.price}} </p>
+        <a href="#" class="btn btn-info">Add to cart</a>
+        </div>
+    </div>
+    </div>
+
+{% endfor %}
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+
+
